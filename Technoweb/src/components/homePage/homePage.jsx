@@ -6,6 +6,9 @@ import ServicesGrid from "./ServicesGrid";
 import Development from "./developmentPhases";
 import FeaturesSection from "./ourProducts";
 import Products from "./ourProductCards"
+import ValuesSection from "./valuesSection"
+import FeaturedWorks from"./Featured"
+import Partners from "./Partners"
 function HomePage() {
   return (
     <div>
@@ -17,6 +20,9 @@ function HomePage() {
       <Development/>
       <FeaturesSection/>
       <Products/>
+      <ValuesSection/>
+      <FeaturedWorks/>
+      <Partners/>
     </div>
   );
 }
