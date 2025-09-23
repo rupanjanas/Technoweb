@@ -5,6 +5,7 @@ import DarkHeroSection from "./DarkHeroSection";
 import ServicesGrid from "./ServicesGrid";
 import Development from "./developmentPhases";
 import FeaturesSection from "./ourProducts";
+import Products from "./ourProductCards"
 function HomePage() {
   return (
     <div>
@@ -15,6 +16,7 @@ function HomePage() {
       <ServicesGrid/>
       <Development/>
       <FeaturesSection/>
+      <Products/>
     </div>
   );
 }
