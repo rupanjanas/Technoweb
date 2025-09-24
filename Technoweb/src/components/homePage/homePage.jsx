@@ -9,6 +9,8 @@ import Products from "./ourProductCards"
 import ValuesSection from "./valuesSection"
 import FeaturedWorks from"./Featured"
 import Partners from "./Partners"
+import Insights from "./Insights"
+import Clients from "./Clients"
 function HomePage() {
   return (
     <div>
@@ -23,6 +25,8 @@ function HomePage() {
       <ValuesSection/>
       <FeaturedWorks/>
       <Partners/>
+      <Insights/>
+      <Clients/>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function ValuesSection() {
     <section className="relative w-full bg-[#323235] text-white py-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Heading */}
-        <div className="flex justify-between items-center mb-10">
+        <div className="sticky top-10 z-20 flex justify-between items-center mb-10">
           <h2 className="text-5xl font-regular">
             Our <span className="text-blue-500">Values</span>
           </h2>
@@ -47,7 +47,7 @@ export default function ValuesSection() {
           {values.map((v) => (
             <div
               key={v.id}
-              className="sticky top-40 flex justify-end "
+              className="sticky top-60 flex justify-end "
             >
               <div className="bg-[#232325] p-8 w-[65vh] h-[60vh]  shadow-md">
                 <div className="text-gray-400 text-sm mb-4">{v.id}</div>
