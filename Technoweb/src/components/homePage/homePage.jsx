@@ -11,6 +11,8 @@ import FeaturedWorks from"./Featured"
 import Partners from "./Partners"
 import Insights from "./Insights"
 import Clients from "./Clients"
+import Form from "./Form"
+import Footer  from "./Footer"
 function HomePage() {
   return (
     <div>
@@ -27,6 +29,8 @@ function HomePage() {
       <Partners/>
       <Insights/>
       <Clients/>
+      <Form/>
+      <Footer/>
     </div>
   );
 }
