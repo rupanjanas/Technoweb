@@ -2,37 +2,33 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const FeaturesSection = () => {
   const sectionRef = useRef(null);
-  const [boxGap, setBoxGap] = useState(40); // Initial gap in px
+  const [boxGap, setBoxGap] = useState(40);
   const rafId = useRef(null);
 
   const handleScroll = useCallback(() => {
-    if (rafId.current) {
-      cancelAnimationFrame(rafId.current);
-    }
+    if (rafId.current) cancelAnimationFrame(rafId.current);
 
     rafId.current = requestAnimationFrame(() => {
       if (sectionRef.current) {
         const sectionRect = sectionRef.current.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
 
-        // Calculate scroll progress within this section
         const startScrollPoint = viewportHeight * 0.8;
         const endScrollPoint = -sectionRect.height * 0.2;
-
         const scrollDistanceFromStart = startScrollPoint - sectionRect.top;
-                
+
         let progress = 0;
         if (scrollDistanceFromStart > 0) {
-            progress = Math.min(1, scrollDistanceFromStart / (startScrollPoint - endScrollPoint));
+          progress = Math.min(
+            1,
+            scrollDistanceFromStart / (startScrollPoint - endScrollPoint)
+          );
         }
 
-        // Define min and max gap values
         const minGap = 40;
         const maxGap = 200;
-                
-        // Linearly interpolate the gap based on scroll progress
         const newGap = minGap + (maxGap - minGap) * progress;
-                
+
         setBoxGap(newGap);
       }
       rafId.current = null;
@@ -41,29 +37,26 @@ const FeaturesSection = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call to set gap on load
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
+      if (rafId.current) cancelAnimationFrame(rafId.current);
     };
   }, [handleScroll]);
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="bg-white text-gray-800 min-h-[60vh] relative p-20 md:p-10 box-border"
+    <section
+      ref={sectionRef}
+      className="bg-white text-gray-800 h-[80vh] relative p-20 md:p-10 box-border z-10"
     >
       <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-center whitespace-nowrap">
         Software <span className="text-blue-500">Features</span>
       </h2>
-      <div 
+      <div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[5] flex justify-center items-center w-full transition-all duration-100 ease-linear flex-col md:flex-row"
         style={{ gap: `${boxGap}px` }}
       >
-        {/* Render 4 feature circles */}
         {Array.from({ length: 4 }).map((_, index) => (
           <div
             key={index}
